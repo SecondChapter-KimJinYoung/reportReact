@@ -1,0 +1,16 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+# dist 폴더가 있으면 삭제 (개발 모드에서는 필요 없음)
+RUN rm -rf dist || true
+
+EXPOSE 3000
+
+CMD ["npm", "run", "start:dev"]
+

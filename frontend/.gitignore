@@ -1,0 +1,56 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency / build outputs
+node_modules
+.pnp.*
+.yarn/*
+dist
+dist-ssr
+build
+out
+.next
+.nuxt
+.output
+.svelte-kit
+coverage
+*.local
+
+# Environment (keep .env tracked as requested)
+.env.*.local
+
+# IDE / editor junk
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS / cache / misc
+*.pid
+*.seed
+*.tgz
+*.orig
+*.tmp
+*.swp
+*.iml
+.cache
+.temp
+.eslintcache
+.stylelintcache
+.turbo
+.parcel-cache
+.vite/deps
+.vite/cache

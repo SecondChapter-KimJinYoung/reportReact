@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko" class="font-init">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <title>대체과제</title>
+
+    <!-- Pretendard: 렌더 이전에 폰트를 미리 가져와서 FOUT 방지 -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/PretendardVariable.woff2"
+    />
+
+    <style>
+      @font-face {
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: block;
+        src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/PretendardVariable.woff2')
+          format('woff2');
+      }
+
+      html.font-init body {
+        opacity: 1;
+      }
+
+      html.font-ready body {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
