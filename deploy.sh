@@ -6,14 +6,14 @@ echo "=== 배포 시작 ==="
 
 # 필요한 패키지 설치
 echo "1. 필수 패키지 설치 중..."
-sudo yum update -y
-sudo yum install -y git docker
+sudo apt-get update -y
+sudo apt-get install -y git docker.io curl
 
 # Docker 서비스 시작
 echo "2. Docker 서비스 시작 중..."
 sudo systemctl start docker
 sudo systemctl enable docker
-sudo usermod -aG docker ec2-user
+sudo usermod -aG docker $USER
 
 # Docker Compose 설치
 echo "3. Docker Compose 설치 중..."
@@ -22,9 +22,13 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # Git 저장소 클론 또는 업데이트
 echo "4. Git 저장소 동기화 중..."
-if [ -d "reportReact" ]; then
+# 현재 디렉토리가 이미 reportReact인지 확인
+if [ -f "docker-compose.prod.yml" ]; then
+    echo "이미 저장소 디렉토리에 있습니다."
+    git pull origin master || true
+elif [ -d "reportReact" ]; then
     cd reportReact
-    git pull origin master
+    git pull origin master || true
 else
     git clone https://github.com/SecondChapter-KimJinYoung/reportReact.git
     cd reportReact
