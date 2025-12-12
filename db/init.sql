@@ -4,18 +4,6 @@
 -- Connect to the database
 \c tododb;
 
--- Create todos table (TypeORM will handle this, but this is a backup)
-CREATE TABLE IF NOT EXISTS todos (
-    id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    completed BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Insert sample data
-INSERT INTO todos (title, completed) VALUES
-    ('Docker Compose 설정하기', true),
-    ('프론트엔드 개발', false),
-    ('백엔드 API 개발', false),
-    ('데이터베이스 연결', false);
+-- TypeORM synchronize가 테이블을 자동으로 생성하므로 여기서는 생성하지 않음
+-- 샘플 데이터는 TypeORM이 테이블을 생성한 후 백엔드에서 삽입하거나
+-- 또는 별도의 마이그레이션 스크립트로 처리
