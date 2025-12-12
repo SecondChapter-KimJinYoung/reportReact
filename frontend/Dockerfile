@@ -2,6 +2,10 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
+# 빌드 인자 받기
+ARG VITE_API_BASE_URL=
+ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
+
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
